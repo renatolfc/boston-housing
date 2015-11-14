@@ -204,4 +204,5 @@ def main():
 	fit_predict_model(city_data)
 
 
-main()
+if __name__ == '__main__':
+    main()
