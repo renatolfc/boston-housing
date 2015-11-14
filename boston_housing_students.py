@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 """
 Loading the boston dataset and examining its target (label) distribution.
 """
