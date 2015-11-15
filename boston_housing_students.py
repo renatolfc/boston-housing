@@ -13,7 +13,6 @@ from sklearn.tree import DecisionTreeRegressor
 ### ADD EXTRA LIBRARIES HERE ###
 ################################
 
-
 def load_data():
     '''Load the Boston dataset.'''
 
@@ -32,14 +31,30 @@ def explore_city_data(city_data):
     ### Step 1. YOUR CODE GOES HERE ###
     ###################################
 
-    # Please calculate the following values using the Numpy library
+    n_samples, n_features = np.shape(housing_features)
+
+    print 'Boston dataset information and statistics\n'
+
     # Size of data?
+    print 'Number of samples:', n_samples
+
     # Number of features?
+    print 'Number of features:', n_features
+
     # Minimum value?
+    print 'Minimum housing price:', np.min(housing_prices)
+
     # Maximum Value?
+    print 'Maximum housing price:', np.max(housing_prices)
+
     # Calculate mean?
+    print 'Mean house price:', np.mean(housing_prices)
+
     # Calculate median?
+    print 'Median house price:', np.median(housing_prices)
+
     # Calculate standard deviation?
+    print 'Standard deviation of housing prices:', np.std(housing_prices)
 
 
 def performance_metric(label, prediction):
