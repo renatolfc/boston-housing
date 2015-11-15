@@ -13,6 +13,8 @@ from sklearn.tree import DecisionTreeRegressor
 ### ADD EXTRA LIBRARIES HERE ###
 ################################
 
+from sklearn import cross_validation, metrics
+
 def load_data():
     '''Load the Boston dataset.'''
 
@@ -26,10 +28,6 @@ def explore_city_data(city_data):
     # Get the labels and features from the housing data
     housing_prices = city_data.target
     housing_features = city_data.data
-
-    ###################################
-    ### Step 1. YOUR CODE GOES HERE ###
-    ###################################
 
     n_samples, n_features = np.shape(housing_features)
 
@@ -60,12 +58,8 @@ def explore_city_data(city_data):
 def performance_metric(label, prediction):
     '''Calculate and return the appropriate performance metric.'''
 
-    ###################################
-    ### Step 2. YOUR CODE GOES HERE ###
-    ###################################
-
     # http://scikit-learn.org/stable/modules/classes.html#sklearn-metrics-metrics
-    pass
+    return metrics.mean_squared_error(label, prediction)
 
 
 def split_data(city_data):
@@ -74,9 +68,7 @@ def split_data(city_data):
     # Get the features and labels from the Boston housing data
     X, y = city_data.data, city_data.target
 
-    ###################################
-    ### Step 3. YOUR CODE GOES HERE ###
-    ###################################
+    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2)
 
     return X_train, y_train, X_test, y_test
 
