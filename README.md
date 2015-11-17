@@ -172,9 +172,12 @@ The conclusions of the previous section are further evidenced when we look at
 the model complexity graph shown in Figure \ref{fig:model}, which shows that
 the error plateaus with `max_depth` values higher than approximately 5.
 Therefore, the model that best generalizes the data is the one with `max_depth
-= 6`, which is confirmed by calling the `best_params_` member of
+= 5`, which is confirmed by calling the `best_params_` member of
 [`GridSearchCV`](http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html),
-which gives `{'max_depth': 6}`.
+which gives values in the range `[5, 6]` with high frequency, and sometimes
+`4`, or `7`. This is due to the random sampling in the way cross-validation is
+done. So we should choose the least complex model that explains the data, and
+I'd go with 5 here.
 
 The complete output of the grid search is given below:
 
